@@ -1,25 +1,31 @@
 content_retrieval:
   description: >
-    Search the internet for content around '{subject}'.
-    The content you retrieve will be used for generating Instagram Posts.
-    The content you retrieve must come from trustworth sources.
-    Keep track of where each content you retrieved came from, so that it can be inspected later on.
-    Avoid old content, so to avoid outdated knowledge.
-    Search and retrieve content from at least 3 sources.
+    Search and summaryze content from the internet around the subject: {subject}.
+    The summary should be some paragraphs wide and contain from 2 to 4 different sources.
+    Keep track of where each content you retrieved came from, adding the links to the summary, so that it can be inspected later on.
   expected_output: >
-    A summary of the searched content with the most important knowledge around '{subject}'.
-    This summary should also include the sources of the content, like for example links and authors.
+    A summary of the searched content with the most important knowledge around the subject: {subject}.
+    The summary should contain content from 2 to 4 internet trustworth sources.
+    DO NOT INCLUDE CODE SNIPPETS. Only text and explanations around the subject are required.
+    This summary should also include the sources of the content, this is, the links where the original content is available.
+
+content_revision:
+  description: >
+    Review the created content from the Retriever and make sure it presents correct and valuable information around the subject: {subject}.
+    Make use of the referred web sources available in the text to check if the information summarized is correct according to the original online text.
+  expected_output: >
+    Review the content provided to you and make sure it presents correct and valuable information around the subject: {subject}.
+    If you think some of the summarized information is not correct, required the Content Retriever to re-check that piece of information and correct it if necessary.
+    If you think the content is correct and is valuable, returns it to the Post Writer so it can do his thing.
 
 post_writting:
   description: >
-    Create an Instagram Post using the summary provided to you around '{subject}' by the Content Retriever Agent.    
-    The post should contain between 3 and 5 slides, each one explaning a bit around the subject.
-    Approach the most important information around the subject.
-    Make the text compelling and easy to understand by any sort of audience, technical and non-technical people.
-    Include the sources you ended up using so for traceability and auditing.
-    Do not make up any knowledge, use the content you were given to generate the post.
-    Avoid using the exact same words from the content you were given, interpret the knowledge and put it in other words WHEN POSSIBLE.
+    Create a compelling Instagram Post using the content summary provided to you around the subject: {subject}.
+    The posts present the most important information around the subject.
   expected_output: >
-    A markdown formatted text containing the Instagram post around '{subject}'.
-    Each slide fo the post should be well defined on the text, separated by titles for example, alongside the sources of knowledge used on each slide.
+    A markdown formatted text containing the Instagram post around the subject: {subject}.
+    The post should contain between 3 and 5 slides, each one explaning a bit around the subject.
+    The post should be easy to understand by any sort of audience, technical and non-technical people.
+    Each slide for the post should be well defined on the text, i.e. separated by titles, alongside the sources of knowledge used on each slide.
     Suggestions of images for each slide are welcome, so we can search/create the images to use as backgrounds on each slide.
+    Do not make up any knowledge, use the content you were given to generate the post.
